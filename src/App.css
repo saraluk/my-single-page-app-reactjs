@@ -1,33 +1,56 @@
-.App {
+.container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template:
+    [row1-start] "header header header" 20% [row1-end]
+    [row2-start] "main main side-nav" 60% [row2-end]
+    [ro3-start] "footer footer footer" 20% [row3-end]
+    / auto auto 20%;
+  background-color: white;
+  color: blueviolet;
+  height: 100vh;
+  width: 100vw;
+}
+
+.box {
+  color: white;
+  padding: 10px;
+}
+
+.header {
+  grid-area: header;
+  background-color: #333646;
+}
+
+.header h1 {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  grid-area: main;
+  background-color: #eaeaea;
+  color: black;
+  overflow: scroll;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.main .summary {
+  padding: 20px 20px 20px 20px;
+  border: solid 1px black;
+  margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.main img {
+  height: 160px;
+  float: right;
+  margin-left: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.side-nav {
+  grid-area: side-nav;
+  background-color: #d8baba;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #333646;
 }
