@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <div className="box footer">
-      <h1>Footer</h1>
+      <p>Copyright &copy; SaralukKai.com</p>
     </div>
   );
 }

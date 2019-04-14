@@ -1,34 +1,18 @@
 import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+
 import { blogPosts } from "../constants/blogPosts";
+import Blog from "../components/Blog";
+import BlogPosts from "../components/BlogPosts";
 
 class MainContainer extends Component {
-  state = {
-    showHomePage: true
-  };
-
-  renderBlogPosts = () => {
-    return (
-      <div>
-        {blogPosts.map(post => (
-          <div key={post.id} className="summary">
-            <img src={post.image} />
-            <h1>{post.title}</h1>
-            <p>{post.blogSummary}</p>
-            <p>{post.date}</p>
-          </div>
-        ))}
-      </div>
-    );
-  };
-
-  renderIndividualBlogPost = () => {};
-
   render() {
     return (
       <div className="box main">
-        {this.state.showHomePage
-          ? this.renderBlogPosts()
-          : this.renderIndividualBlogPost()}
+        <Switch>
+          <Route exact path="/" component={BlogPosts} />
+          <Route path="/blog/:id" component={Blog} />
+        </Switch>
       </div>
     );
   }
